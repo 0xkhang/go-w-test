@@ -1,7 +1,7 @@
 package sequence
-
 import (
 	"fmt"
+	"slices"
 	"testing"
 )
 
@@ -16,7 +16,7 @@ func TestSum(t *testing.T) {
 			t.Errorf("got %d want %d given %v\n", got, want, nums)
 		}
 	})
-    
+
 	t.Run("sum with all negative integers", func(t *testing.T) {
 		nums := []int{-10, -20, -30, -40, -50}
 
@@ -27,6 +27,26 @@ func TestSum(t *testing.T) {
 			t.Errorf("got %d want %d given %v\n", got, want, nums)
 		}
 	})
+}
+
+func TestSumAll(t *testing.T) {
+    t.Run("sum all elements", func(t *testing.T) {
+        got := SumAll([]int{1, 2}, []int{9, 8})
+        want := []int{3, 17}
+
+        if !slices.Equal(got, want) {
+            t.Errorf("got %v want %v", got, want)
+        }
+    })
+
+    t.Run("sum all, empty slice", func(t *testing.T) {
+        got := SumAll([]int{}, []int{-1, 8})
+        want := []int{0, 7}
+
+        if !slices.Equal(got, want) {
+            t.Errorf("got %v want %v", got, want)
+        }
+    })
 }
 
 func ExampleSum() {
