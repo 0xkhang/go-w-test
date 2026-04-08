@@ -1,6 +1,8 @@
 package sequence
+
 import (
 	"fmt"
+	"reflect"
 	"slices"
 	"testing"
 )
@@ -39,11 +41,32 @@ func TestSumAll(t *testing.T) {
         }
     })
 
-    t.Run("sum all, empty slice", func(t *testing.T) {
+    t.Run("sum all empty slice", func(t *testing.T) {
         got := SumAll([]int{}, []int{-1, 8})
         want := []int{0, 7}
 
         if !slices.Equal(got, want) {
+            t.Errorf("got %v want %v", got, want)
+        }
+    })
+}
+
+func TestSumAllTails(t *testing.T) {
+    t.Run("test sum all tails", func(t *testing.T) {
+        got := SumAllTails([]int{1,3,7}, []int{9,9,5,2})
+        want := []int{10, 16}
+
+        if !reflect.DeepEqual(got, want) {
+            t.Errorf("got %v want %v", got, want)
+        }
+    })
+
+
+    t.Run("test sum all tails have empty slice", func(t *testing.T) {
+        got := SumAllTails([]int{1,3,7}, []int{9,9,5,2}, []int{})
+        want := []int{10, 16, 0}
+
+        if !reflect.DeepEqual(got, want) {
             t.Errorf("got %v want %v", got, want)
         }
     })
