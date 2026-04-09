@@ -26,13 +26,13 @@ func TestSort(t *testing.T) {
         }
     })
 
-    // t.Run("Insertion sort", func(t *testing.T) {
-    //     nums := []int{8,4,3,6,5,2}
-    //     got := InsertionSort(nums)
-    //     want := []int{2,3,4,5,6,8}
-    //
-    //     if !slices.Equal(got, want) {
-    //         t.Errorf("got %v want %v", got, want)
-    //     }
-    // })
+    t.Run("Bubble Sort", func(t *testing.T) {
+        nums := []int{8,4,3,6,5,2}
+        got := BubbleSort(nums)
+        want := []int{2,3,4,5,6,8}
+
+        if !slices.Equal(got, want) {
+            t.Errorf("got %v want %v", got, want)
+        }
+    })
 }
