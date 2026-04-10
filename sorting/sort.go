@@ -14,7 +14,6 @@ func SelectionSort(nums []int) []int {
 		}
 		nums[min], nums[i] = nums[i], nums[min]
 	}
-
 	return nums
 }
 
@@ -30,7 +29,6 @@ func ReverseSelectionSort(nums []int) []int {
 				max = j
 			}
 		}
-
 		nums[max], nums[i] = nums[i], nums[max]
 	}
 	return nums
@@ -52,6 +50,34 @@ func BubbleSort(nums []int) []int {
         } 
 	}
     return nums
+}
+
+func MergeSorted(nums1, nums2 []int) []int {
+    result := make([]int, 0) 
+    i := 0
+    j := 0
+
+    for i < len(nums1) && j < len(nums2) {
+        if nums1[i] <= nums2[j] {
+            result = append(result, nums1[i])
+            i++
+        } else {
+            result = append(result, nums2[j])
+            j++
+        }
+    }
+
+    for i < len(nums1) {
+        result = append(result, nums1[i])
+        i++
+    }
+
+    for j < len(nums1) {
+        result = append(result, nums2[j])
+        j++
+    }
+
+    return result 
 }
 
 func Swap(a, b int) (int, int) {
