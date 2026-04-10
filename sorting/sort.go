@@ -38,48 +38,84 @@ func BubbleSort(nums []int) []int {
 	n := len(nums)
 
 	for k := range n {
-        swap := false
+		swap := false
 		for i := 0; i < n-k-1; i++ {
 			if nums[i] > nums[i+1] {
 				nums[i], nums[i+1] = Swap(nums[i], nums[i+1])
-                swap = true;
+				swap = true
 			}
 		}
-        if !swap {
-            return nums
-        } 
+		if !swap {
+			return nums
+		}
 	}
-    return nums
+	return nums
 }
 
 func MergeSorted(nums1, nums2 []int) []int {
-    result := make([]int, 0) 
-    i := 0
-    j := 0
+	result := make([]int, 0)
+	i := 0
+	j := 0
 
-    for i < len(nums1) && j < len(nums2) {
-        if nums1[i] <= nums2[j] {
-            result = append(result, nums1[i])
-            i++
-        } else {
-            result = append(result, nums2[j])
-            j++
-        }
-    }
+	for i < len(nums1) && j < len(nums2) {
+		if nums1[i] <= nums2[j] {
+			result = append(result, nums1[i])
+			i++
+		} else {
+			result = append(result, nums2[j])
+			j++
+		}
+	}
 
-    for i < len(nums1) {
-        result = append(result, nums1[i])
-        i++
-    }
+	for i < len(nums1) {
+		result = append(result, nums1[i])
+		i++
+	}
 
-    for j < len(nums1) {
-        result = append(result, nums2[j])
-        j++
-    }
+	for j < len(nums1) {
+		result = append(result, nums2[j])
+		j++
+	}
 
-    return result 
+	return result
 }
 
+func InsertionSort(nums []int) []int {
+	result := make([]int, 0)
+
+	for _, num := range nums {
+		result = SmartInsert(result, num)
+	}
+
+	return result
+}
+
+func SmartInsert(nums []int, data int) []int {
+    n := len(nums)
+
+    if n == 0 {
+        nums = append(nums, data)
+        return nums
+    } 
+
+    new_nums := make([]int, n+1)
+    
+    copy(new_nums, nums)
+
+    pos := 0
+
+    for pos < n && nums[pos] < data {
+        pos++ 
+    }
+
+    for i := len(new_nums) - 2; i >= pos; i-- {
+        new_nums[i+1] = new_nums[i]
+    }
+    new_nums[pos] = data
+    return new_nums
+}
+
+// helper for swap
 func Swap(a, b int) (int, int) {
 	temp := a
 	a = b
