@@ -115,6 +115,24 @@ func SmartInsert(nums []int, data int) []int {
     return new_nums
 }
 
+func OptimalInsertionSort(nums []int) []int {
+    n := len(nums)
+    for i := 1; i < n; i++ {
+        j := i - 1 
+        cur := i
+        for j >= 0 {
+            if nums[j] > nums[cur] {
+                nums[cur], nums[j] = nums[j], nums[cur]
+                j--;
+                cur--;
+            } else {
+                break
+            }
+        }
+    }
+    return nums
+}
+
 // helper for swap
 func Swap(a, b int) (int, int) {
 	temp := a
