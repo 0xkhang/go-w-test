@@ -118,17 +118,14 @@ func SmartInsert(nums []int, data int) []int {
 func OptimalInsertionSort(nums []int) []int {
     n := len(nums)
     for i := 1; i < n; i++ {
-        j := i - 1 
-        cur := i
-        for j >= 0 {
-            if nums[j] > nums[cur] {
-                nums[cur], nums[j] = nums[j], nums[cur]
-                j--;
-                cur--;
-            } else {
-                break
-            }
+        val := nums[i]    
+        
+        j := i - 1
+        for j >= 0 && nums[j] > val {
+            nums[j+1] = nums[j]
+            j--;
         }
+        nums[j+1] = val
     }
     return nums
 }

@@ -72,9 +72,9 @@ func TestSort(t *testing.T) {
 	})
 
 	t.Run("Test Optimal", func(t *testing.T) {
-		nums := []int{5, 4, 2, 1}
+		nums := []int{5, 3, 2, 1}
 		got := OptimalInsertionSort(nums)
-		want := []int{1, 2, 4, 5}
+		want := []int{1, 2, 3, 5}
 
 		Compare(t, got, want)
 	})
