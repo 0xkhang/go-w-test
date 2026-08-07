@@ -13,7 +13,7 @@ func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 		}()
 	}
 
-    time.Sleep(2 * time.Second)
+	time.Sleep(2 * time.Second)
 
 	return results
 }

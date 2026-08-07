@@ -13,7 +13,6 @@ func TestPerimeter(t *testing.T) {
 		t.Errorf("got %.2f want %.2f", got, want)
 	}
 }
-
 func TestArea(t *testing.T) {
 	areaTest := []struct {
 		name  string
