@@ -33,7 +33,7 @@ func TestFibRecursive(t *testing.T) {
 	})
 
 	t.Run("with memoi", func(t *testing.T) {
-        mp := make(map[int]int, 0)
+		mp := make(map[int]int, 0)
 		got := FibMemoi(12, mp)
 		want := 144
 

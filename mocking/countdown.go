@@ -12,27 +12,27 @@ const (
 )
 
 type Sleeper interface {
-    Sleep()
+	Sleep()
 }
 
 type DefaultSleeper struct{}
 
 func (d *DefaultSleeper) Sleep() {
-    time.Sleep(1 * time.Second)
+	time.Sleep(1 * time.Second)
 }
 
 type SpySleeper struct {
-    Calls int
+	Calls int
 }
 
 func (s *SpySleeper) Sleep() {
-    s.Calls++
+	s.Calls++
 }
 
 func Countdown(out io.Writer, sleeper Sleeper) {
 	for i := countdownStart; i > 0; i-- {
 		fmt.Fprintln(out, i)
-        sleeper.Sleep()
+		sleeper.Sleep()
 	}
 
 	fmt.Fprintf(out, "%s\n", finalWord)

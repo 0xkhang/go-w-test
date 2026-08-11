@@ -27,4 +27,3 @@ func MergeSorted(nums1, nums2 []int) []int {
 
 	return result
 }
-

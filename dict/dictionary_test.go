@@ -82,14 +82,14 @@ func TestDelete(t *testing.T) {
 		assertError(t, err, ErrNotFound)
 	})
 
-    t.Run("non-existing word", func(t *testing.T) {
-        word := "test"
-        dict := Dictionary{}
+	t.Run("non-existing word", func(t *testing.T) {
+		word := "test"
+		dict := Dictionary{}
 
-        err := dict.Delete(word)
+		err := dict.Delete(word)
 
-        assertError(t, err, ErrWordDoesNotExist)
-    })
+		assertError(t, err, ErrWordDoesNotExist)
+	})
 }
 
 func assertStrings(t testing.TB, got, want string) {

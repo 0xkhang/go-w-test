@@ -1,8 +1,8 @@
 package helloworld
 
 import (
-    "strings"
-    "fmt"
+	"fmt"
+	"strings"
 )
 
 const EngPrefix = "Hello, "
@@ -11,26 +11,26 @@ const EspanolPrefix = "Ola, "
 const VietPrefix = "Chao, "
 
 func Hello(name, lang string) string {
-    lang = strings.ToLower(lang)
-    
-    if name == "" {
-        name = "World"
-    }
+	lang = strings.ToLower(lang)
 
-    var prefix string
+	if name == "" {
+		name = "World"
+	}
 
-    switch lang {
-        case "english":
-            prefix = EngPrefix
-        case "chinese":
-            prefix = ChinesePrefix
-        case "espanol":
-            prefix = EspanolPrefix
-        case "viet":
-            prefix = VietPrefix
-        default:
-            fmt.Println("Unknown language")
-    }
+	var prefix string
 
-    return prefix + name
+	switch lang {
+	case "english":
+		prefix = EngPrefix
+	case "chinese":
+		prefix = ChinesePrefix
+	case "espanol":
+		prefix = EspanolPrefix
+	case "viet":
+		prefix = VietPrefix
+	default:
+		fmt.Println("Unknown language")
+	}
+
+	return prefix + name
 }

@@ -5,11 +5,11 @@ package recursion
 // T(n) = O(n)
 
 func ExpIterative(x, n int) int {
-    res := 1
-    for range n {
-        res *= x
-    }
-    return res     
+	res := 1
+	for range n {
+		res *= x
+	}
+	return res
 }
 
 // Recursive approach to compute x^n
@@ -38,21 +38,21 @@ func ExpIterative(x, n int) int {
 //   T(n) = O(n)   (linear time complexity)
 
 func ExpRecursive(x, n int) int {
-    if n == 0 {
-        return 1
-    }
-    return x * ExpRecursive(x, n-1)
+	if n == 0 {
+		return 1
+	}
+	return x * ExpRecursive(x, n-1)
 }
 
 func ExpSmart(x, n int) int {
-    if n == 0 {
-       return 1 
-    }
+	if n == 0 {
+		return 1
+	}
 
-    if n % 2 == 0 && n != 0 {
-        num := ExpSmart(x, n/2)
-        return num * num
-    }
+	if n%2 == 0 && n != 0 {
+		num := ExpSmart(x, n/2)
+		return num * num
+	}
 
-    return x * ExpSmart(x, n - 1)
+	return x * ExpSmart(x, n-1)
 }
